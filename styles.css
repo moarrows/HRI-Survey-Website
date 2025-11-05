@@ -1,0 +1,34 @@
+body {
+    padding: 20px;
+    font-weight: bold;
+    font-size: 5em;
+    text-align: center;
+    background-color: #424B54;
+    color: #F0EFF4;
+    overflow-y: hidden;
+}
+
+p {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  color: #F0EFF4;
+  line-height: 1.6;
+}
+
+.video-container {
+    width: 80%;
+    height: 80vh;
+    position: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.video-js {
+    background-color: #424B54;
+    width: 80% !important;
+    height: 80% !important;
+}
+
+.video-js .vjs-picture-in-picture-control {
+  display: none;
+}
