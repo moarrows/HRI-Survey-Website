@@ -1,4 +1,4 @@
-test();
+main();
 
 let player = videojs("my-video");
 let breath_source = {src: "videos/breathing.mp4", type: "video/mp4"};
@@ -38,7 +38,7 @@ async function startSpeech() {
   });
 }
 
-async function test() {
+async function main() {
     // Press space to start video
     await waitforSpace();
     const t0 = performance.now();

@@ -1,0 +1,7 @@
+random characters to obfuscate pages
+
+(severity, eye pattern)
+
+mMGa3fP6 - (light, green), (medium, none), (high, green/yellow)
+sByy6ZGD - (high, none), (light, green/yellow), (medium, green)
+GVvSxCLM - (medium, green/yellow), (high, green), (light, none)
