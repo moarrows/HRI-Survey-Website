@@ -15,9 +15,14 @@ p {
   line-height: 1.6;
 }
 
+.subtitle {
+  font-size: 24px;
+  text-align: center;
+}
+
 .video-container {
     width: 80%;
-    height: 80vh;
+    height: 60vh;
     position: center;
     display: block;
     margin: 0 auto;
