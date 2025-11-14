@@ -32,3 +32,15 @@ p {
 .video-js .vjs-picture-in-picture-control {
   display: none;
 }
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 2px solid rgba(0,0,0,.1);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn:hover {
+  border: 2px solid rgba(0,0,0,.8);
+}

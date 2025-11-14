@@ -17,8 +17,6 @@ async function waitforSpace() {
       if (e.keyCode === 32) {
         document.removeEventListener('keydown', onKeyHandler);
         resolve();
-
-
       }
     }
   });
