@@ -22,6 +22,20 @@ const interaction1_para = `
     <button id="begin" class="btn begin">Start</button>
 `;
 
+const interaction2_para = `
+    <p>
+        Click to start the first interaction.
+    </p>
+    <button id="begin" class="btn begin">Start</button>
+`;
+
+const interaction3_para = `
+    <p>
+        Click to start the first interaction.
+    </p>
+    <button id="begin" class="btn begin">Start</button>
+`;
+
 export function sleep(ms) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);

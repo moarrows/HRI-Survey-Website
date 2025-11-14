@@ -40,20 +40,26 @@ function waitForTime(time, timeout = 20000) {
 
 function waitForSpaceOrPause(time) {
   return new Promise((resolve) => {
+    let spacePressed = false;
+
     document.addEventListener('keydown', onSpace);
     async function onSpace(e) {
         if (e.keyCode === 32) {
+            spacePressed = true;
             resolve();
-            setTimeout(player.play(), 1);
+            player.play();
         }
     }
 
     const loop = () => {
-      if (player.currentTime() >= time) {
-        player.pause();
-      } else {
-        setTimeout(loop, 0);
-      }
+        if(spacePressed) {
+            resolve();
+            player.play();
+        } else if (player.currentTime() >= time) {
+            player.pause();
+        } else {
+            setTimeout(loop, 0);
+        }
     };
 
     setTimeout(loop, 0);
@@ -66,7 +72,7 @@ async function test() {
 
     const t0 = performance.now();
     document.getElementById("main").innerHTML = intro_buffer;
-    player.src({ type: 'video/mp4', src: "videos/light-green.mp4" });
+    player.src({ type: 'video/mp4', src: "videos/Light-Green.mp4" });
     // await startInteractionOne();
 
     await waitforSpace();
@@ -80,8 +86,9 @@ async function test() {
     player.muted(false);
     say("nao", "Hello, Liam. What seems to bring you in today?");
 
-    await waitForSpaceOrPause(16);
+    await waitForTime(14);
     player.muted(true);
+    await waitForSpaceOrPause(16);
     say("you", "I have a slight cough.");
     await waitForTime(20);
     player.currentTime(24);
@@ -90,7 +97,7 @@ async function test() {
     player.muted(false);
     say("nao", "I see. Any other symptoms, Liam, like fever, difficulty breathing, or fatigue?");
 
-    await waitForSpaceOrPause(33.5);
+    await waitForSpaceOrPause(34);
     player.muted(true);
     say("you", "No, just the cough.");
     await waitForTime(40);
