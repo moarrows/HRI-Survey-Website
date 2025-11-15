@@ -24,16 +24,27 @@ const interaction1_para = `
 
 const interaction2_para = `
     <p>
-        Click to start the first interaction.
+        Thank you for completing the first interaction.<br>
+        When you are ready, click to start the second interaction.
     </p>
     <button id="begin" class="btn begin">Start</button>
 `;
 
 const interaction3_para = `
     <p>
-        Click to start the first interaction.
+        Thank you for completing the second interaction.<br>
+        When you are ready, click to start the third interaction.
     </p>
     <button id="begin" class="btn begin">Start</button>
+`;
+
+const goodbye_para = `
+    <p>
+        Thank you for completing these interactions!<br>
+        Results copied to clipboard. Please return to the form and paste these in the provided text box.<br>
+        You may now close this page.
+    </p>
+    <button id="begin" class="btn begin">Close</button>
 `;
 
 export function sleep(ms) {
@@ -74,5 +85,20 @@ export async function intro() {
 
 export async function startInteractionOne() {
     document.getElementById("main").innerHTML = interaction1_para;
+    await waitForClick();
+}
+
+export async function startInteractionTwo() {
+    document.getElementById("main").innerHTML = interaction2_para;
+    await waitForClick();
+}
+
+export async function startInteractionThree() {
+    document.getElementById("main").innerHTML = interaction3_para;
+    await waitForClick();
+}
+
+export async function sayGoodbye() {
+    document.getElementById("main").innerHTML = goodbye_para;
     await waitForClick();
 }
