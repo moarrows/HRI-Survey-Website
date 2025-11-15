@@ -18,13 +18,14 @@ p {
 .subtitle {
   font-size: 24px;
   text-align: center;
+  display: block;
 }
 
 .video-container {
     width: 80%;
     height: 60vh;
     position: center;
-    display: block;
+    display: none;
     margin: 0 auto;
 }
 
@@ -32,6 +33,7 @@ p {
     background-color: #424B54;
     width: 80% !important;
     height: 80% !important;
+    display: none;
 }
 
 .video-js .vjs-picture-in-picture-control {

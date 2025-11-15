@@ -3,7 +3,7 @@ Object.assign(globalThis, common);
 
 test();
 
-let player = videojs("my-video");
+let player = videojs("video1");
 
 let intro_buffer = `<p>Press space to start the interaction.</p>`;
 
@@ -97,7 +97,12 @@ async function naoTalk(message, startTime) {
 
 function finishInteraction() {
     player.muted(true);
-    document.getElementById("my-video").style.visibility = "hidden";
+    document.getElementById("video1").style.display = 'none';
+    document.getElementById("video2").style.display = 'none';
+    document.getElementById("video3").style.display = 'none';
+    document.getElementById("cvideo1").style.display = 'none';
+    document.getElementById("cvideo2").style.display = 'none';
+    document.getElementById("cvideo3").style.display = 'none';
     document.getElementById("you").style.display = 'none';
     document.getElementById("nao").style.display = 'none';
 }
@@ -161,10 +166,10 @@ async function test() {
 
     document.getElementById("main").innerHTML = intro_buffer;
 
-    player.src({ type: 'video/mp4', src: "videos/Medium-Yg.mp4" });
-
     // Begin Interaction One
     await waitforSpace();
+    document.getElementById("video1").style.display = 'inline-block';
+    document.getElementById("cvideo1").style.display = 'block';
     document.querySelector('p').style.visibility = "hidden";
     player.play();
     player.muted(true);
@@ -187,13 +192,16 @@ async function test() {
 
     await waitForTime(96);
     finishInteraction();
-    player.src({ type: 'video/mp4', src: "videos/High-Green.mp4" });
+    player = videojs("video2");
 
     // Begin interaction Two
     await startInteractionTwo();
+    document.getElementById("video2").style.display = 'inline-block';
+    document.getElementById("cvideo2").style.display = 'block';
     document.getElementById("main").innerHTML = intro_buffer;
     document.querySelector('p').style.visibility = "visible";
-    document.getElementById("my-video").style.visibility = "visible";
+
+
     await waitforSpace();
     document.querySelector('p').style.visibility = "hidden"
     player.play();
@@ -203,19 +211,21 @@ async function test() {
 
     await naoTalk("Hello Liam. What seems to be the problem today?", 14);
 
-    await humanTalk("I have a bad cut on my arm.", 20, 27);
+    await humanTalk("I have a bad cut on my arm.", 19, 27);
 
     await naoTalk("I see, Liam. Reserve your movements and try not to touch the cut. A doctor will be with you shortly.", 30);
 
     await waitForTime(37.5);
     finishInteraction();
-    player.src({ type: 'video/mp4', src: "videos/Light-None.mp4" });
+    player = videojs("video3");
 
     // Begin interaction Three
     await startInteractionThree();
-    document.getElementById("main").innerHTML = intro_buffer;
+    document.getElementById("video3").style.display = 'inline-block';
+    document.getElementById("cvideo3").style.display = 'block';
     document.querySelector('p').style.visibility = "visible";
-    document.getElementById("my-video").style.visibility = "visible";
+    document.getElementById("main").innerHTML = intro_buffer;
+
     await waitforSpace();
     document.querySelector('p').style.visibility = "hidden"
     player.play();
