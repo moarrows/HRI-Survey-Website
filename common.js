@@ -65,19 +65,6 @@ function waitForClick() {
   });
 }
 
-
-export async function waitforSpace() {
-  return new Promise((resolve) => {
-    document.addEventListener('keydown', onKeyHandler);
-    function onKeyHandler(e) {
-      if (e.keyCode === 32) {
-        document.removeEventListener('keydown', onKeyHandler);
-        resolve();
-      }
-    }
-  });
-}
-
 export async function intro() {
     document.getElementById("main").innerHTML = intro_para;
     await waitForClick();

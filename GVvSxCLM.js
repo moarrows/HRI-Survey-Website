@@ -161,29 +161,33 @@ async function test() {
 
     document.getElementById("main").innerHTML = intro_buffer;
 
-    player.src({ type: 'video/mp4', src: "videos/Light-Green.mp4" });
+    player.src({ type: 'video/mp4', src: "videos/Medium-Yg.mp4" });
 
     // Begin Interaction One
     await waitforSpace();
     document.querySelector('p').style.visibility = "hidden";
     player.play();
     player.muted(true);
-    player.currentTime(7);
-    say("you", "Hi, my name is Liam.");
+    player.currentTime(25);
+    say("you", "Hello, my name is Liam.");
 
-    await naoTalk("Hello, Liam. What seems to bring you in today?", 9.5);
+    await naoTalk("Hello, my name is Beacon, here to conduct your initial assesment. First, could you please state your full name?", 28);
 
-    await humanTalk("I have a slight cough.", 13.5, 24);
+    await humanTalk("Liam.", 37, 46);
 
-    await naoTalk("I see. Any other symptoms, Liam, like fever, difficult breathing, or fatigue?", 27);
+    await naoTalk("Nice to meet you, Liam. Now, could you please briefly tell me what brings you here today?", 48);
 
-    await humanTalk("No, just the cough.", 33.5, 58);
+    await humanTalk("I have a scrape on my leg.", 57, 63);
 
-    await naoTalk("Understood. Please rest and hydrate, a doctor will be with you soon to further assess your condition.", 61);
+    await naoTalk("Understood, Liam. Is there severe bleeding, any impurities in the wound, or intense pain associated with the scrape?", 65);
 
-    await waitForTime(67.5);
+    await humanTalk("Moderate bleeding and pain.", 77, 83);
+
+    await naoTalk("I see, Liam. Try to keep calm. A doctor will apply a dressing to your wound shortly to stop the bleeding and alleviate some of the pain.", 85);
+
+    await waitForTime(96);
     finishInteraction();
-    player.src({ type: 'video/mp4', src: "videos/Medium-None.mp4" });
+    player.src({ type: 'video/mp4', src: "videos/High-Green.mp4" });
 
     // Begin interaction Two
     await startInteractionTwo();
@@ -197,19 +201,15 @@ async function test() {
     player.currentTime(10);
     say("you", "Hello, my name is Liam.");
 
-    await naoTalk("Nice to meet you, Liam. Can you briefly describe your symptoms or tell me what happened?", 13);
+    await naoTalk("Hello Liam. What seems to be the problem today?", 14);
 
-    await humanTalk("I have a scrape on my leg.", 18.7, 42);
+    await humanTalk("I have a bad cut on my arm.", 20, 27);
 
-    await naoTalk("I see. And how did this happen Liam? Also, does the scrape seem deep?", 45);
+    await naoTalk("I see, Liam. Reserve your movements and try not to touch the cut. A doctor will be with you shortly.", 30);
 
-    await humanTalk("I fell out of a tree, and no the scrape is not deep but it is bleeding pretty bad.", 53.5, 61);
-
-    await naoTalk("Okay Liam, we need to stop the bleeding. A medical professional should asses the injury soon. Stay calm.", 64);
-
-    await waitForTime(73.9);
+    await waitForTime(37.5);
     finishInteraction();
-    player.src({ type: 'video/mp4', src: "videos/High-Yg.mp4" });
+    player.src({ type: 'video/mp4', src: "videos/Light-None.mp4" });
 
     // Begin interaction Three
     await startInteractionThree();
@@ -220,16 +220,20 @@ async function test() {
     document.querySelector('p').style.visibility = "hidden"
     player.play();
     player.muted(true);
-    player.currentTime(15);
+    player.currentTime(12);
     say("you", "Hello, my name is Liam.");
 
-    await naoTalk("Hello Liam, can you please briefly describe your symptoms or what brings you in today?", 17);
+    await naoTalk("Hello Liam. What brings you to the triage center today?", 14);
 
-    await humanTalk("Yes I have a serious cut on my arm.", 23.5, 31);
+    await humanTalk("I have a slight cough.", 18, 28);
 
-    await naoTalk("I understand your situation. I am contacting a doctor immediately. Please stay calm and try to keep the wound clean.", 34);
+    await naoTalk("I understand. Have you experienced any fever, difficulty breathing, or recent loss of taste or smell?", 31);
 
-    await waitForTime(43.5);
+    await humanTalk("No, just the cough.", 40, 52);
+
+    await naoTalk("Alright, a doctor should see you shortly for a follow up. Please maintain social distances and use a mask.", 55);
+
+    await waitForTime(64);
     finishInteraction();
 
     await copyPara();
@@ -238,5 +242,3 @@ async function test() {
     close();
 
 }
-
-

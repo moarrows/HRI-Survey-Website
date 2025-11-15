@@ -27,7 +27,7 @@ async function test() {
     await intro();
     logSpace();
 
-    player.src({ type: 'video/mp4', src: "videos/High-Yg.mp4" });
+    player.src({ type: 'video/mp4', src: "videos/Light-None.mp4" });
     player.play();
 }
 
