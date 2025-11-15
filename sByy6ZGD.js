@@ -166,7 +166,6 @@ async function test() {
 
     document.getElementById("main").innerHTML = intro_buffer;
 
-
     // Begin Interaction One
     await waitforSpace();
     document.getElementById("video1").style.display = 'inline-block';
